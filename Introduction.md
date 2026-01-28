@@ -70,6 +70,37 @@ Definition:
 Inheritance allows a class to reuse properties and behavior of another class.
 Inheritance promotes code reusability and hierarchical relationships.
 
+ 3.1 Multiple Inheritance
+ 
+A class inherits from more than one base class.
+Ambiguity occurs in multiple inheritance when base classes contain functions with the same name.
+
+              class A {
+              public:
+                  void show() { cout << "A"; }
+              };
+              
+              class B {
+              public:
+                  void show() { cout << "B"; }
+              };
+              
+              class C : public A, public B {};
+
+-> Ambiguity Error (Very Important )
+*  Problem:
+  
+              C obj;
+              obj.show();  // ERROR: ambiguous
+
+* Solution:
+
+-> Use scope resolution operator
+
+              obj.A::show();
+              obj.B::show();
+
+
 Polymorphism
 
 Definition:
@@ -143,7 +174,26 @@ Function overriding is an Object-Oriented Programming (OOP) concept where a deri
       s = &c;
       s->draw();   // Output: Drawing circle
 
-      
 
+# Diomand Problem
 
+The diamond problem occurs in multiple inheritance when a class inherits from two classes having a common base class, 
+causing ambiguity and duplication. It is solved using virtual inheritance.
+
+* If multiple inheritance happens later, share the base class.
+* It ensures only one instance of a base class exists within an inheritance hierarchy
+
+solution: 
+
+              class A {
+              public:
+                  int x;
+              };
+              
+              class B : virtual public A { };
+              
+              class C : virtual public A { };
+              
+              class D : public B, public C { };
+       
 
