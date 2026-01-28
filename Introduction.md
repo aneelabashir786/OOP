@@ -30,7 +30,8 @@ It may contain:
 
 * abstract (pure virtual) functions → no implementation
 * normal functions → with implementation
-virtual void draw() = 0;
+
+       virtual void draw() = 0;
 
 3. Inheritance
 
@@ -46,6 +47,72 @@ Polymorphism makes the system flexible and extensible.
 
 Types:
 
-Compile-time (function overloading)
+Compile-time  / Static Polymorphism (function overloading)
 
-Run-time (method overriding)
+Polymorphism that is resolved at compile time.
+
+➤ How is it achieved?
+
+* Function Overloading
+  
+  Function overloading allows you to define multiple functions with the same name but different
+  parameter lists (number, type, or order of parameters) within the same scope
+  
+      class Math {
+      public:
+          int add(int a, int b) {
+              return a + b;
+          }
+          double add(double a, double b) {
+              return a + b;
+          }
+      };
+
+
+* Operator Overloading
+  
+  Operator overloading lets you redefine the behavior of standard operators (like +, -, *) for user-defined types
+  (classes/objects) in object-oriented programming, allowing them to perform specific actions on those objects
+
+      class Point {
+        public:
+            int x, y;
+            Point operator+(Point p) {
+                Point temp;
+                temp.x = x + p.x;
+                temp.y = y + p.y;
+                return temp;
+            }
+        };
+        
+
+Run-time / Dynamic Polymorphism (method overriding)
+
+
+* Function Overriding :
+  
+Function overriding is an Object-Oriented Programming (OOP) concept where a derived class provides a specific implementation for a function that is already defined in its base class, using the same name, return type, and parameters, enabling runtime polymorphism and allowing different behaviors for the same function call across classes.
+
+      class Shape {
+      public:
+          virtual void draw() {
+              cout << "Drawing shape";
+          }
+      };
+      
+      class Circle : public Shape {
+      public:
+          void draw() {
+              cout << "Drawing circle";
+          }
+      };
+
+      Shape* s;
+      Circle c;
+      s = &c;
+      s->draw();   // Output: Drawing circle
+
+      
+
+
+
