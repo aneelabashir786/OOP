@@ -4,6 +4,37 @@ Object-Oriented Programming (OOP) is a programming paradigm that organizes code 
 It helps in writing reusable, scalable, and maintainable code.
 
 
+##  Procedural Programming
+
+* Focus on functions
+* Data is shared
+* Less secure
+
+##  Object-Oriented Programming
+
+* Focus on objects
+* Data encapsulated
+* More scalable
+
+Interview line:
+
+OOP is better suited for large, complex systems.
+
+
+## Object-Oriented Design (OOD)
+
+* Planning stage
+* Identifying classes & relationships
+
+## Object-Oriented Programming (OOP)
+
+* Implementation stage
+* Writing code using classes & objects
+
+Interview line:
+
+OOD defines the structure, OOP implements it.
+
 ## 4 pillors of OOP
 
 1. Encapsulation
